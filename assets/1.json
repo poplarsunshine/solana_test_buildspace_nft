@@ -1,0 +1,19 @@
+{
+  "name": "NAME_OF_NFT",
+  "symbol": "",
+  "image": "1.png",
+  "properties": {
+    "files": [
+      {
+        "uri": "1.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "CZcL1iYuDpfaqTgbHR9nJ1rpm5r4mvUgpoVvTnFkQG4",
+        "share": 100
+      }
+    ]
+  }
+}
