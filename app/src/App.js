@@ -19,7 +19,6 @@ const App = () => {
       if (solana) {
         if (solana.isPhantom) {
           console.log('Phantom wallet found!');
-
           /*
            * The solana object gives us a function that will allow us to connect
            * directly with the user's wallet!
@@ -48,6 +47,15 @@ const App = () => {
     }
   };
 
+  const disconnectTheWallet = async () => {
+    const { solana } = window;
+    if (solana) {
+      // const response = await solana.disconnectWallet();
+      setWalletAddress(null);
+      console.log('DisConnected Wallet');
+    }
+  }
+
   const renderNotConnectedContainer = () => (
     <button
       className="cta-button connect-wallet-button"
@@ -55,6 +63,19 @@ const App = () => {
     >
       Connect to Wallet
     </button>
+  );
+
+  const renderConnectedContainer = () => (
+    <p>
+      <p className="gradient-text">Wallet Address:</p>
+      <p className="gradient-text">{walletAddress}</p>
+      <button 
+      className="cta-button connect-wallet-button"
+      onClick={disconnectTheWallet}
+      >
+      Disconnect Wallet
+      </button>
+    </p>
   );
 
   useEffect(() => {
@@ -70,6 +91,8 @@ const App = () => {
       <div className="container">
         <div className="header-container">
           <p className="header">🍭 Candy Drop</p>
+          {walletAddress && renderConnectedContainer()}
+          
           <p className="sub-text">NFT drop machine with fair mint</p>
           {!walletAddress && renderNotConnectedContainer()}
         </div>
