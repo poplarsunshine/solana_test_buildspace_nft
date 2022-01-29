@@ -50,9 +50,9 @@ const App = () => {
   const disconnectTheWallet = async () => {
     const { solana } = window;
     if (solana) {
-      // const response = await solana.disconnectWallet();
+      const response = await solana.disconnect();
       setWalletAddress(null);
-      console.log('DisConnected Wallet');
+      console.log('DisConnected Wallet response', response);
     }
   }
 
